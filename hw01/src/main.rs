@@ -1,7 +1,13 @@
-use
+use problem1::sum;
+
+mod problem1;
 
 fn main() {
     println!("Hello, world!");
+
+    let temp: [i32; 4] = [1,2,3,4];
+
+    println!("test: {}", sum(&temp));
 }
 
 /*
