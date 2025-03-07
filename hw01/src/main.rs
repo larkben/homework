@@ -1,4 +1,4 @@
-use problem1::sum;
+use problem1::{sum, dedup};
 
 mod problem1;
 
@@ -6,8 +6,17 @@ fn main() {
     println!("Hello, world!");
 
     let temp: [i32; 4] = [1,2,3,4];
+    let mut dep = Vec::new();
+
+    dep.push(1);
+    dep.push(1);
+    dep.push(2);
 
     println!("test: {}", sum(&temp));
+
+    let dedup = dedup(&dep);
+
+    println!("test dedup: {}, {}", dedup[0], dedup[1]);
 }
 
 /*
