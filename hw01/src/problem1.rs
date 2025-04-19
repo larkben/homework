@@ -12,9 +12,7 @@ pub fn sum(slice: &[i32]) -> i32 {
     temp
 }
 
-#[warn(unused_variables)]
 pub fn dedup(vs: &Vec<i32>) -> Vec<i32> {
-    // todo
     let mut dedup = Vec::new();
 
     for i in vs {
@@ -22,13 +20,19 @@ pub fn dedup(vs: &Vec<i32>) -> Vec<i32> {
             dedup.push(*i);
         }
     }
-
     dedup
 }
 
-#[warn(unused_variables)]
 pub fn filter(vs: &Vec<i32>, pred: &dyn Fn(i32) -> bool) -> Vec<i32> {
-    // todo
-    unimplemented!()
+    let mut temp_vec = Vec::new();
+
+    for i in vs {
+        //println!("{}", i);
+        if pred(*i) {
+            temp_vec.push(*i)
+        }
+        
+    }
+    temp_vec
 }
 
