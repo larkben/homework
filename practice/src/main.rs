@@ -3,7 +3,7 @@ fn main() {
 
     println!("the first word is {}", first_word(&t));
 
-    println!("the third word is {}", get_word(&t, 3));
+    println!("the third word is {}", get_word(&t, 4));
 }
 
 // gets the first word of a slice
@@ -27,14 +27,20 @@ fn get_word(s: &str, word: i32) -> &str {
     let mut words_found = 0;
     let mut last_index = 0;
 
+    // get word from 0 -> (len - 1)
     for (i, &item) in s_bytes.iter().enumerate() {
         if item == b' ' {
             if words_found == word {
                 return &s[last_index..i]
             }
             words_found += 1;
-            last_index = i;
+            last_index = i + 1;
         }
+    }
+
+    // handle the last word possibility
+    if word == words_found {
+        return &s[last_index..]
     }
 
     &s
